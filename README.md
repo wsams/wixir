@@ -11,3 +11,8 @@ git clone git@github.com:wsams/wixir.git
 cd wixir
 docker-compose up
 ```
+
+It will take a couple minutes for assets to compile. Once finished you may
+find the application at,
+
+http://localhost:4000/
