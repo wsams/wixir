@@ -1,9 +1,6 @@
 version: "3.7"
 services:
   app:
-    container_name: wixir
-    image: wixir:latest
+    image: wsams/wixir:latest
     ports:
       - 4000:4000
-    volumes:
-      - ./docker/app:/app

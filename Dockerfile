@@ -12,7 +12,12 @@ RUN apt-get update && \
     mix local.hex --force && \
     mix archive.install hex phx_new 1.4.10 --force && \
     apt-get clean && \
-    mix phx.new app --no-ecto
+    mix phx.new app --no-ecto && \
+    cd app && \
+    mix deps.get && \
+    mix local.rebar --force && \
+    cd assets && \
+    npm install
 
 WORKDIR /app
 
