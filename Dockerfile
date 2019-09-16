@@ -11,13 +11,8 @@ RUN apt-get update && \
     apt-get -y install wget vim curl zip unzip git build-essential nodejs && \
     mix local.hex --force && \
     mix archive.install hex phx_new 1.4.10 --force && \
-    apt-get clean && \
-    mix phx.new app --no-ecto && \
-    cd app && \
-    mix deps.get && \
     mix local.rebar --force && \
-    cd assets && \
-    npm install
+    apt-get clean
 
 WORKDIR /app
 

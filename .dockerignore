@@ -1,0 +1,5 @@
+LICENSE
+README.md
+/app
+create-new-app.sh
+docker-compose.yml

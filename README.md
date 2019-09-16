@@ -11,10 +11,20 @@ GitHub project found at https://github.com/wsams/wixir
 ```
 git clone git@github.com:wsams/wixir.git
 cd wixir
-docker-compose up
+./create-new-app.sh
+docker-compose up -d
 ```
 
-It will take a couple minutes for assets to compile. Once finished you may
-find the application at,
+It will take a couple minutes for assets to compile. Once finished you will find your application at,
 
 http://localhost:4000/
+
+# Developing an Application
+
+Once your application is running you may edit files and Webpack will compile them in real-time. For example, to change the default index page edit,
+
+```
+/app/lib/app_web/templates/page/index.html.eex
+```
+
+Refresh the index page and you should see your content changed without restarting the server.
