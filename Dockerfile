@@ -7,6 +7,7 @@ FROM elixir:1.9
 WORKDIR /
 
 RUN apt-get update && \
+    apt-get -y upgrade && \
     curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     apt-get -y install wget vim curl zip unzip git build-essential nodejs && \
     mix local.hex --force && \
