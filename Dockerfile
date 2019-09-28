@@ -18,3 +18,4 @@ RUN apt-get update && \
 WORKDIR /app
 
 CMD ["mix" , "phx.server"]
+

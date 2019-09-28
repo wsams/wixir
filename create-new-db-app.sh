@@ -71,3 +71,4 @@ echo
 # Sample command for creating your database if not using the `db` service. For
 # example with an external database. This assumes you manually configured `app/config/dev.exs`
 #docker-compose run --rm -v $(pwd)/app:/app app bash -c 'mix ecto.create /app'
+

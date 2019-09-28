@@ -6,6 +6,10 @@ Image found on Docker Hub at https://hub.docker.com/r/wsams/wixir
 
 GitHub project found at https://github.com/wsams/wixir
 
+# Read first
+
+Note, both quick start guides (with and without a database) create an application in your git clone. Ideally you would create a directory somewhere else on your filesystem and copy all scripts (`.sh` files) and `docker-compose.yml` there before performing any of the actions. This is not necessary if you want to see how this project works, but for a real project it is recommended.
+
 # Quick Start (no database) (without ecto)
 
 ```
@@ -36,6 +40,20 @@ http://localhost:4000/
 
 See https://hexdocs.pm/phoenix/ecto.html for information on creating schemas and working with Ecto.
 
+## Create new schemas and run migrations
+
+The `create-new-schema.sh` script will create the a `.ex` file `lib/app` with your schema definitions and a migration file in `priv/repo/migrations`. For example let's create a `Cat` schema. Note, an `id` field will be created automatically, no need to pass one. Run the script without arguments for help.
+
+```
+./create-new-schema.sh Cat cats 'name:string age:integer'
+```
+
+Once that's created you can use the `run-migrations.sh` script to create your schema in the real database. You can build up all of yours schemas first or run it each time.
+
+```
+./run-migrations.sh
+```
+
 # Developing an Application
 
 Once your application is running you may edit files and Webpack will compile them in real-time. For example, to change the default index page edit,
@@ -45,3 +63,4 @@ Once your application is running you may edit files and Webpack will compile the
 ```
 
 Refresh the index page and you should see your content changed without restarting the server.
+

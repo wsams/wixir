@@ -8,3 +8,4 @@ echo && echo -e "You will be prompted to overwrite /app. You will also be prompt
 
 docker run -it --rm -v $(pwd)/app:/app wsams/wixir:${1:-latest} bash -c \
     'mix phx.new /app --no-ecto && mix deps.get && cd assets && npm install'
+
