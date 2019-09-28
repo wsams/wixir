@@ -34,6 +34,8 @@ It will take a couple minutes for assets to compile. Once finished you will find
 
 http://localhost:4000/
 
+See https://hexdocs.pm/phoenix/ecto.html for information on creating schemas and working with Ecto.
+
 # Developing an Application
 
 Once your application is running you may edit files and Webpack will compile them in real-time. For example, to change the default index page edit,
