@@ -9,3 +9,4 @@ erl_crash.dump
 /config/*.secret.exs
 /app
 .DS_Store
+/pgdata

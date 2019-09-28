@@ -6,13 +6,28 @@ Image found on Docker Hub at https://hub.docker.com/r/wsams/wixir
 
 GitHub project found at https://github.com/wsams/wixir
 
-# Quick Start
+# Quick Start (no database) (without ecto)
 
 ```
 git clone git@github.com:wsams/wixir.git
 cd wixir
 ./create-new-app.sh
-docker-compose up -d
+docker-compose up -d app
+```
+
+It will take a couple minutes for assets to compile. Once finished you will find your application at,
+
+http://localhost:4000/
+
+# Quick Start (with a PostgreSQL database) (with ecto)
+
+The `create-new-db-app.sh` script starts a PostgreSQL container and configures your application to use this container. The script will prompt for details and explain what's going to happen and will give you the option to quit.
+
+```
+git clone git@github.com:wsams/wixir.git
+cd wixir
+./create-new-db-app.sh
+docker-compose up -d app
 ```
 
 It will take a couple minutes for assets to compile. Once finished you will find your application at,
