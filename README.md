@@ -1,6 +1,6 @@
 # wixir
 
-Elixir Phoenix Docker image and Docker Compose sample project.
+Elixir Phoenix Docker image and Docker Compose project builder.
 
 Image found on Docker Hub at https://hub.docker.com/r/wsams/wixir
 
