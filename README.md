@@ -10,6 +10,8 @@ GitHub project found at https://github.com/wsams/wixir
 
 Note, both quick start guides (with and without a database) create an application in your git clone. Ideally you would create a directory somewhere else on your filesystem and copy all scripts (`.sh` files) and `docker-compose.yml` there before performing any of the actions. This is not necessary if you want to see how this project works, but for a real project it is recommended.
 
+This project was developed on both MacOS and Linux and assumes you have BASH, `docker`, and `docker-compose` installed, and Docker running on your system. You should still be able to use Docker for Windows, but you will have to manually run the docker commands found in the shell scripts.
+
 # Quick Start (no database) (without ecto)
 
 ```
@@ -42,13 +44,13 @@ See https://hexdocs.pm/phoenix/ecto.html for information on creating schemas and
 
 ## Create new schemas and run migrations
 
-The `create-new-schema.sh` script will create the a `.ex` file `lib/app` with your schema definitions and a migration file in `priv/repo/migrations`. For example let's create a `Cat` schema. Note, an `id` field will be created automatically, no need to pass one. Run the script without arguments for help.
+The `create-new-schema.sh` script will create a `.ex` file in `lib/app` with your schema definitions and a migration file in `priv/repo/migrations`. For example let's create a `Cat` schema. Note, an `id` field will be created automatically, no need to pass one. Run the script without arguments for help.
 
 ```
 ./create-new-schema.sh Cat cats 'name:string age:integer'
 ```
 
-Once that's created you can use the `run-migrations.sh` script to create your schema in the real database. You can build up all of yours schemas first or run it each time.
+Once that's created you can use the `run-migrations.sh` script to create your schema in the real database. You can build up all of your schemas first or run it each time.
 
 ```
 ./run-migrations.sh
