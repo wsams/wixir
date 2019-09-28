@@ -10,3 +10,4 @@ erl_crash.dump
 /app
 .DS_Store
 /pgdata
+.env
