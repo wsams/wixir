@@ -6,6 +6,11 @@ services:
       - 4000:4000
     volumes:
       - ./app:/app
+    environment:
+      - DB_HOSTNAME
+      - DB_NAME
+      - DB_USERNAME
+      - DB_PASSWORD
   db:
     image: postgres:11.5
     environment:

@@ -40,7 +40,7 @@ It will take a couple minutes for assets to compile. Once finished you will find
 
 http://localhost:4000/
 
-See https://hexdocs.pm/phoenix/ecto.html for information on creating schemas and working with Ecto.
+See https://hexdocs.pm/phoenix/ecto.html for information on creating schemas and working with Ecto. Also see [this document](https://hexdocs.pm/phoenix/deployment.html#handling-of-your-application-secrets) for information on using environment variables and securing secrets in production. Currently the `create-new-db-app.sh` script only configures `config/dev.exs` to use environment variables pulled in from `.env` and defined in `docker-compose.yml`.
 
 ## Create new schemas and run migrations
 

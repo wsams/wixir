@@ -25,8 +25,8 @@ if [ $ready != "yes" ]; then
     exit
 fi
 
-#docker run -it --rm -v $(pwd)/app:/app wsams/wixir:${1:-latest} bash -c \
-#    'mix phx.new /app && mix deps.get && cd assets && npm install'
+docker run -it --rm -v $(pwd)/app:/app wsams/wixir:${1:-latest} bash -c \
+    'mix phx.new /app && mix deps.get && cd assets && npm install'
 
 echo "Ready to set up your database."
 echo -n "Enter your database name: "
@@ -38,16 +38,20 @@ echo
 echo -n "Enter your database password: "
 read dbpassword
 
-sed -i '' -e "s/username: \"postgres\"/username: \"${dbusername}\"/" \
-          -e "s/password: \"postgres\"/password: \"${dbpassword}\"/" \
-          -e "s/database: \"app_dev\"/database: \"${dbname}\"/" \
-          -e "s/hostname: \"localhost\"/hostname: \"db\"/" \
+sed -i '' -e "s/username: \"postgres\"/username: System.get_env(\"DB_USERNAME\")/" \
+          -e "s/password: \"postgres\"/password: System.get_env(\"DB_PASSWORD\")/" \
+          -e "s/database: \"app_dev\"/database: System.get_env(\"DB_NAME\")/" \
+          -e "s/hostname: \"localhost\"/hostname: System.get_env(\"DB_HOSTNAME\")/" \
           -e "s/show_sensitive_data_on_connection_error: true/show_sensitive_data_on_connection_error: false/" \
     app/config/dev.exs
 
 echo "POSTGRES_DB=${dbname}
 POSTGRES_USER=${dbusername}
 POSTGRES_PASSWORD=${dbpassword}
+DB_NAME=${dbname}
+DB_USERNAME=${dbusername}
+DB_PASSWORD=${dbpassword}
+DB_HOSTNAME=db
 " > .env
 
 docker-compose up -d db
@@ -71,4 +75,3 @@ echo
 # Sample command for creating your database if not using the `db` service. For
 # example with an external database. This assumes you manually configured `app/config/dev.exs`
 #docker-compose run --rm -v $(pwd)/app:/app app bash -c 'mix ecto.create /app'
-
